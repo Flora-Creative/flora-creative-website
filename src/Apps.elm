@@ -1,6 +1,10 @@
 -- Handles representations of apps
 module Apps exposing (..)
 
+import Html exposing (..)
+
+import Styles exposing (..)
+
 
 type alias App =
   { name: String
@@ -21,3 +25,9 @@ fromJson jsonApp =
   , storeURL = "nothing"
   , colour = "#ffeedd"
   }
+
+
+-- VIEW: what does an app look like?
+view : App -> Html msg
+view app =
+  div [] [ text app.name ]

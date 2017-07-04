@@ -5,7 +5,10 @@ import Http
 import String
 import Dict
 
+import Css
+
 import Apps
+import Styles exposing (idStyle, classStyle)
 
 
 main =
@@ -47,16 +50,13 @@ update msg model =
 
 banner : (Html msg)
 banner =
-  section [id "banner"]
-  [ div [ class "inner" ]
-    [ h2 [] [ text "flora project" ]
-    , h3 [] [ text "audio effects" ]
+  section [ idStyle Styles.Banner ]
+  [ div [ classStyle Styles.Inner ]
+    [ h2 [ idStyle Styles.FloraHeader ] [ text "flora project" ]
+    , h3 [ idStyle Styles.ProjectHeader ] [ text "audio effects" ]
     ]
-  , div [ class "inner" ]
-    [ p [ style [ ("text-alignment", "justify")
-                , ("text-justify", "inter-word")
-                ]
-        ]
+  , div [ classStyle Styles.Inner ]
+    [ p [ classStyle Styles.Description ]
       [ text "The flora project was conceived as a suite of beautifully simple audio effects, cpu-effective audio effects for iOS devices, reminiscent of stomp-box style effects."
       , br [] []
       , br [] []
@@ -68,10 +68,8 @@ banner =
 view : Model -> Html msg
 view model =
   body
-  []
-  [ banner
-  ]
-
+  [ idStyle Styles.Defaults ]
+  (banner :: ( model.apps |> Dict.values |> List.map Apps.view ))
 
 
 -- SUBSCRIPTIONS: probably none?
