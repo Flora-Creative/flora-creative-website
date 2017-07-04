@@ -8,7 +8,7 @@ import Dict
 import Css
 
 import Apps
-import Styles exposing (idStyle, classStyle)
+import Styles.Index exposing (..)
 
 
 main =
@@ -50,13 +50,13 @@ update msg model =
 
 banner : (Html msg)
 banner =
-  section [ idStyle Styles.Banner ]
-  [ div [ classStyle Styles.Inner ]
-    [ h2 [ idStyle Styles.FloraHeader ] [ text "flora project" ]
-    , h3 [ idStyle Styles.ProjectHeader ] [ text "audio effects" ]
+  section [ idStyle Banner ]
+  [ div [ classStyle Inner ]
+    [ h2 [ idStyle FloraHeader ] [ text "flora project" ]
+    , h3 [ idStyle ProjectHeader ] [ text "audio effects" ]
     ]
-  , div [ classStyle Styles.Inner ]
-    [ p [ classStyle Styles.Description ]
+  , div [ classStyle Inner ]
+    [ p [ classStyle Description ]
       [ text "The flora project was conceived as a suite of beautifully simple audio effects, cpu-effective audio effects for iOS devices, reminiscent of stomp-box style effects."
       , br [] []
       , br [] []
@@ -68,7 +68,7 @@ banner =
 view : Model -> Html msg
 view model =
   body
-  [ idStyle Styles.Defaults ]
+  [ idStyle Defaults ]
   (banner :: ( model.apps |> Dict.values |> List.map Apps.view ))
 
 

@@ -5,7 +5,9 @@
   "main": "index.html",
   "dependencies": {
     "elm": "^0.18.0",
-    "gulp": "^3.9.1"
+    "elm-css": "^0.6.1",
+    "gulp": "^3.9.1",
+    "gulp-elm": "^0.7.2"
   },
   "devDependencies": {
     "gulp": "^3.9.1"
