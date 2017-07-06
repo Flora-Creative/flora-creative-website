@@ -1,19 +1,11 @@
--- Handles representations of apps
-module Apps exposing (..)
+module Apps.View exposing (view)
 
 import Html exposing (..)
+import Html.Attributes exposing (..)
+import Html.Events
+import Html.CssHelpers
 
-import Styles exposing (..)
-
-
-type alias App =
-  { name: String
-  , gallery: List String
-  , description: String
-  , storeURL: String
-  , colour: String
-  }
-
+import Apps.Types exposing (App)
 
 -- loading
 

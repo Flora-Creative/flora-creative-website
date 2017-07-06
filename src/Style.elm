@@ -1,4 +1,4 @@
-module Styles.Index exposing (..)
+module Style exposing (..)
 
 import Html
 import Html.Attributes
@@ -6,6 +6,8 @@ import Html.CssHelpers exposing (withNamespace)
 import Css exposing (..)
 import Css.Elements
 import Css.Namespace exposing (namespace)
+
+-- This is the style
 
 
 -- CLASSES/NAMESPACE
