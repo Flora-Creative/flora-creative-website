@@ -1,13 +1,14 @@
 module View exposing (..)
 
 import Html exposing (..)
-import Html.Attributes exposing (..)
+import Html.Attributes
 import Html.Events
 import Html.CssHelpers
 
 import Dict
 
 import Style
+import SharedStyles
 import Types exposing (..)
 
 import Apps.View
@@ -25,18 +26,18 @@ view model =
 
 
 { id, class, classList } =
-    Style.indexNamespace
+    SharedStyles.indexNamespace
 
 
 banner : (Html msg)
 banner =
-  section [ id Style.Banner ]
-  [ div [ class [Style.Inner] ]
-    [ h2 [ id Style.FloraHeader ] [ text "flora project" ]
-    , h3 [ id Style.ProjectHeader ] [ text "audio effects" ]
+  section [ id SharedStyles.Banner ]
+  [ div [ class [SharedStyles.Inner] ]
+    [ h2 [ id SharedStyles.FloraHeader ] [ text "flora project" ]
+    , h3 [ id SharedStyles.ProjectHeader ] [ text "audio effects" ]
     ]
-  , div [ class [Style.Inner] ]
-    [ p [ class [Style.Description] ]
+  , div [ class [SharedStyles.Inner] ]
+    [ p [ class [SharedStyles.Description] ]
       [ text "The flora project was conceived as a suite of beautifully simple audio effects, cpu-effective audio effects for iOS devices, reminiscent of stomp-box style effects."
       , br [] []
       , br [] []

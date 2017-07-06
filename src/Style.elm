@@ -7,23 +7,9 @@ import Css exposing (..)
 import Css.Elements
 import Css.Namespace exposing (namespace)
 
--- This is the style
+import SharedStyles exposing (..)
 
-
--- CLASSES/NAMESPACE
-
-type CssClass = Inner
-              | Description
-              | MultiClass (List CssClass)
-
-type CssId = Banner
-           | FloraHeader
-           | ProjectHeader
-           | Defaults
-
-indexNamespace =
-  withNamespace "index"
-
+-- This is the top level style, which should apply by default :)
 
 -- ACTUAL CSS DEFINITIONS
 
@@ -64,55 +50,12 @@ descriptionStyle =
   , lineHeight (int 2)
   , textTransform lowercase ]
 
--- stick it all together
+-- stick it all together to generate static css
 css =
-  (stylesheet << namespace "index")
+  (stylesheet << namespace indexNamespace.name)
   [ Css.Elements.body defaultStyle
   , class Inner innerStyle
   , class Description descriptionStyle
   , id FloraHeader floraHeaderStyle
   , id ProjectHeader projectHeaderStyle
   ]
-
--- HELPERS
-
--- take a list of Css styles to an Html.Attributes msg for inline styling
-inlineStyle =
-  Css.asPairs >> Html.Attributes.style
-
-withDefaults styles =
-  List.concat [ defaultStyle, styles ]
-
--- Turns a defined css id into inline style
-idStyle id_ =
-  case id_ of
-
-    Banner ->
-      bannerStyle |> withDefaults |> inlineStyle
-
-    FloraHeader ->
-      floraHeaderStyle |> withDefaults |> inlineStyle
-
-    ProjectHeader ->
-      projectHeaderStyle |> withDefaults |> inlineStyle
-
-    Defaults ->
-      inlineStyle defaultStyle
-
-
-classStylePairs: CssClass -> List (String, String)
-classStylePairs class_ =
-  case class_ of
-
-    Inner ->
-      Css.asPairs innerStyle
-
-    Description ->
-      descriptionStyle |> withDefaults |> Css.asPairs
-
-    MultiClass classes ->
-      List.concatMap classStylePairs classes
-
-
-classStyle class_ =
-  class_ |> classStylePairs |> Html.Attributes.style
