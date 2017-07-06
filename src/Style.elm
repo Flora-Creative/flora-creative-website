@@ -1,7 +1,7 @@
 module Style exposing (css)
 
 import Css exposing (..)
-import Css.Elements exposing (..)
+import Css.Elements exposing (body)
 import Css.Namespace exposing (namespace)
 
 import SharedStyles exposing (..)
@@ -17,9 +17,10 @@ bannerStyle =
 
 -- style basics that everyone should inherit
 defaultStyle =
-  [ color (hex "#44140")
+  [ color (hex "#444140")
   , fontFamilies [ "Avenir", "Helvetica Neue" ]
-  , letterSpacing (Css.em 0.1)]
+  , letterSpacing (Css.em 0.1)
+  ]
 
 floraHeaderStyle =
   [ fontSize (Css.em 1.5)
@@ -30,13 +31,15 @@ floraHeaderStyle =
   , fontWeight (int 700)
   , letterSpacing (Css.em 0.1)
   , margin4 (Css.em 0) (Css.em 0) (Css.em 1) (Css.em 0)
-  , borderBottom3 (px 2) solid (rgba 255 255 255 0.125)]
+  , borderBottom3 (px 2) solid (rgba 255 255 255 0.125)
+  ]
 
 projectHeaderStyle =
   [ fontSize (Css.em 2.25)
   , paddingBottom (Css.em 0.1)
   , textAlign center
-  , margin4 (Css.em 0) (Css.em 0) (Css.em 0.1) (Css.em 0) ]
+  , margin4 (Css.em 0) (Css.em 0) (Css.em 0.1) (Css.em 0)
+  ]
 
 innerStyle =
   [ margin auto ]
@@ -45,14 +48,19 @@ descriptionStyle =
   [ fontSize (Css.em 0.8)
   , fontWeight (int 200)
   , lineHeight (int 2)
-  , textTransform lowercase ]
+  , textTransform lowercase
+  ]
 
 -- stick it all together to generate static css
 css =
   (stylesheet << namespace indexNamespace.name)
-  [ Css.Elements.body defaultStyle
+  [ body defaultStyle
   , class Inner innerStyle
   , class Description descriptionStyle
   , id FloraHeader floraHeaderStyle
   , id ProjectHeader projectHeaderStyle
-  ]
+ ]
+
+-- css =
+  -- (stylesheet << namespace indexNamespace)
+  -- [id Inner [margin auto]]

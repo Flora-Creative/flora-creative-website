@@ -16,4 +16,4 @@ type CssIds = Banner
 
 
 indexNamespace =
-  withNamespace "index"
+  withNamespace "flora"

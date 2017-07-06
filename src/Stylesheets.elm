@@ -8,7 +8,7 @@ port files : CssFileStructure  -> Cmd msg
 fileStructure : CssFileStructure
 fileStructure =
   Css.File.toFileStructure
-    [ ( "site/gen/index.css", Css.File.compile [ Style.css ] ) ]
+    [ ( "site/gen/css/index.css", Css.File.compile [ Style.css ] ) ]
 
 
 main : CssCompilerProgram
