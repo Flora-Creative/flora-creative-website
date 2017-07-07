@@ -7,9 +7,7 @@
     "elm": "^0.18.0",
     "elm-css": "^0.6.1",
     "gulp": "^3.9.1",
-    "gulp-elm": "^0.7.2"
-  },
-  "devDependencies": {
+    "gulp-elm": "^0.7.2",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-webserver": "^0.9.1"
