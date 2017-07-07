@@ -17,6 +17,7 @@ function buildElmJs() {
 
 function buildElmCss(cb) {
   gutil.log('building Elm CSS')
+  exec('mkdir -p site/gen/css'); // bit hacky
   exec('elm-css src/Stylesheets.elm', function (err, stdout, stderr) {
     gutil.log(stdout);
     gutil.log(stderr);
