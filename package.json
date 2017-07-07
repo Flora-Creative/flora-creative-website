@@ -10,6 +10,7 @@
     "gulp-elm": "^0.7.2"
   },
   "devDependencies": {
+    "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-webserver": "^0.9.1"
   },

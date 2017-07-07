@@ -3,7 +3,9 @@ var elm       = require('gulp-elm')
 var gutil     = require('gulp-util')
 var exec      = require('child_process').exec;
 var webserver = require('gulp-webserver');
+var del       = require('del');
 var siteDir   = './site/';
+
 
 function buildElmJs() {
   gutil.log('building Elm JS')
@@ -42,4 +44,8 @@ gulp.task('serve', function () {
       directoryListing: false,
       open: true,
     }));
+});
+
+gulp.task('clean', function () {
+  return del('site/gen');
 });
