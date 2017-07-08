@@ -1,7 +1,8 @@
 module Style exposing (css)
 
 import Css exposing (..)
-import Css.Elements exposing (body)
+import Css.Elements exposing ( body
+                             , h1, h2, h3, h4, h5, h6 )
 import Css.Namespace exposing (namespace)
 
 import SharedStyles exposing (..)
@@ -18,12 +19,12 @@ bannerStyle =
 -- style basics that everyone should inherit
 defaultStyle =
   [ color (hex "#444140")
-  , fontFamilies [ "Avenir", "Helvetica Neue" ]
+  , fontFamilies [ "Avenir"] --, -- "Helvetica Neue" ]
   , letterSpacing (Css.em 0.1)
   ]
 
 floraHeaderStyle =
-  [ fontSize (Css.em 1.5)
+  [ fontSize (Css.em 4.5)
   , marginBottom (Css.em 0.2)
   , paddingBottom (Css.em 0.1)
   , color (hex "#444140")
@@ -59,6 +60,7 @@ css =
   , class Description descriptionStyle
   , id FloraHeader floraHeaderStyle
   , id ProjectHeader projectHeaderStyle
+  , id Banner bannerStyle
  ]
 
 -- css =
