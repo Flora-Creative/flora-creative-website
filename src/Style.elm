@@ -19,7 +19,7 @@ bannerStyle =
 -- style basics that everyone should inherit
 defaultStyle =
   [ color (hex "#444140")
-  , fontFamilies [ "Avenir"] --, -- "Helvetica Neue" ]
+  , fontFamilies [ "Avenir", "Helvetica Neue", "Sans-Serif" ]
   , letterSpacing (Css.em 0.1)
   ]
 
