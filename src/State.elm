@@ -1,7 +1,12 @@
-module State exposing (initialState, update, subscriptions)
+module State exposing (..)
 
 import Dict
 import Debug exposing (log)
+
+import RouteUrl exposing (UrlChange)
+import RouteUrl.Builder
+import Navigation exposing (Location)
+import UrlParser
 
 import Types exposing (..)
 import Apps.State
@@ -29,6 +34,34 @@ update msg model =
       -- just update the current focus
       ( model, Cmd.none )
 
+-- see if we need a new URL
+delta2hash : Model -> Model -> Maybe UrlChange
+delta2hash previous current =
+  Maybe.map RouteUrl.Builder.toHashChange <| delta2builder previous current
+
+
+delta2builder : Model -> Model -> Maybe RouteUrl.Builder.Builder
+delta2builder previous current =
+  case current.focus of
+
+    Just appName ->
+      -- could be legit
+      Just (RouteUrl.Builder.fromUrl appName)
+
+    Nothing ->
+      Nothing
+
+
+-- turn a different url into messages for the update
+location2messages : Location -> List Msg
+location2messages location =
+  case UrlParser.parseHash UrlParser.string location of
+
+    Just appName ->
+      [ AppClick appName ]
+
+    Nothing ->
+      []
 
 -- SUBSCRIPTIONS: probably none?
 

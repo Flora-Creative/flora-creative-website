@@ -99,6 +99,7 @@ appContents app =
       , appGallery app
       , appDescription app
       , appStoreButton app
+      , br [] [], br [] []
       ]
     ]
 

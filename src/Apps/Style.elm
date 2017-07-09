@@ -15,8 +15,9 @@ appNamespace =
 css : Css.Stylesheet
 css =
   (Css.stylesheet << namespace appNamespace.name)
-  [ Css.class Content [ Css.marginBottom (Css.cm 2) ]
-  , Css.class Wrapper [ Css.width (Css.pct 60)
+  [ Css.class Content [ Css.width (Css.pct 60)
+                      , Css.marginBottom (Css.cm 2) ]
+  , Css.class Wrapper [ Css.width (Css.pct 100)
                       , Css.display Css.inlineBlock ]
   , Css.class Spacer  [ Css.marginBottom (Css.cm 1.5) ]
   ]
