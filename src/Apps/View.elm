@@ -12,38 +12,38 @@ import SharedStyles exposing (..)
   appNamespace
 
 
-appColorStyles : App -> Html.Attribute msg
+appColorStyles : AppModel -> Html.Attribute msg
 appColorStyles app =
-  [ app.backgroundColor |> Css.hex |> Css.backgroundColor
-  , app.foregroundColor |> Css.hex |> Css.color
+  [ app.app.backgroundColor |> Css.hex |> Css.backgroundColor
+  , app.app.foregroundColor |> Css.hex |> Css.color
   ]
     |> Css.asPairs
     |> Html.Attributes.style
 
 
-appSectionAttributes : App -> List (Html.Attribute msg)
+appSectionAttributes : AppModel -> List (Html.Attribute msg)
 appSectionAttributes app =
   [ appColorStyles app
   , class [ Wrapper ]
-  , Html.Attributes.id app.auIdentifier
+  , Html.Attributes.id app.app.auIdentifier
   ]
 
 
-appSectionWrapper : App -> List (Html msg) -> Html msg
+appSectionWrapper : AppModel -> List (Html msg) -> Html msg
 appSectionWrapper app children =
   (app |> appSectionAttributes |> section) <| children
 
 
-appTitleStyle : App -> Html.Attribute msg
+appTitleStyle : AppModel -> Html.Attribute msg
 appTitleStyle app =
-  [ Css.borderBottom3 (Css.px 2) Css.solid (Css.hex app.foregroundColor) ]
+  [ Css.borderBottom3 (Css.px 2) Css.solid (Css.hex app.app.foregroundColor) ]
     |> Css.asPairs
     |> Html.Attributes.style
 
 
-appTitle : App -> Html msg
+appTitle : AppModel -> Html msg
 appTitle app =
-    h2 [ appTitleStyle app ] [ text app.appName ]
+    h2 [ appTitleStyle app ] [ text app.app.appName ]
 
 
 embedGalleryItem : GalleryItem -> Html msg
@@ -64,33 +64,33 @@ embedGalleryItem item =
 -- THIS guy is going to be a pain
 
 
-appGallery : App -> Html msg
+appGallery : AppModel -> Html msg
 appGallery app =
   ul [] <| List.map embedGalleryItem <| app.galleryItems
 
 
-descriptionStyle : App -> Html.Attribute msg
+descriptionStyle : AppModel -> Html.Attribute msg
 descriptionStyle app =
-  [ Css.borderTop3 (Css.px 2) Css.solid (Css.hex app.foregroundColor) ]
+  [ Css.borderTop3 (Css.px 2) Css.solid (Css.hex app.app.foregroundColor) ]
     |> Css.asPairs
     |> Html.Attributes.style
 
 
-appDescription : App -> Html msg
+appDescription : AppModel -> Html msg
 appDescription app =
-  p [ descriptionStyle app ] [ text app.appDescription ]
+  p [ descriptionStyle app ] [ text app.app.appDescription ]
 
 
 appStoreImg : Html msg
 appStoreImg =
   img [ Html.Attributes.src "/assets/images/app_store_badge.svg" ] []
 
-appStoreButton : App -> Html msg
+appStoreButton : AppModel -> Html msg
 appStoreButton app =
-  a [ Html.Attributes.href app.itunesUrl ] [ appStoreImg ]
+  a [ Html.Attributes.href app.app.itunesUrl ] [ appStoreImg ]
 
 
-appContents : App -> Html msg
+appContents : AppModel -> Html msg
 appContents app =
   div [ class [ Inner ] ]
     [ div [ class [ Content ] ]
@@ -107,7 +107,7 @@ appContents app =
 -- VIEW: what does an app look like?
 
 
-view : App -> Html msg
+view : AppModel -> Html msg
 view app =
   [ appContents app ]
     |> appSectionWrapper app
