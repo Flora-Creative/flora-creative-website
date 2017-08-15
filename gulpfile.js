@@ -25,6 +25,7 @@ function buildElmCss(cb) {
   })
 }
 
+gulp.task('default', ['build', 'serve'], function () {});
 
 gulp.task('elm-init', elm.init);
 
