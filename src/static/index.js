@@ -1,3 +1,6 @@
+require('./bootstrap')
+require('../elm/Stylesheets')
+
 var $ = jQuery = require( '../../node_modules/jquery/dist/jquery.js' );           // <--- remove if jQuery not needed
 
 // inject bundled Elm app into div#main

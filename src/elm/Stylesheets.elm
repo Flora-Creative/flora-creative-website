@@ -23,7 +23,7 @@ allCss =
 fileStructure : CssFileStructure
 fileStructure =
     Css.File.toFileStructure
-        [ ( "src/static/all.css", Css.File.compile allCss ) ]
+        [ ( "main.css", Css.File.compile allCss ) ]
 
 
 main : CssCompilerProgram
