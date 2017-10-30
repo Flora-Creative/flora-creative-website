@@ -19,7 +19,11 @@ update msg model =
     case msg of
         AppsLoad (Ok result) ->
             -- decode apps and assign into model
-            ( { model | apps = Apps.State.decodeAppsList result }, Cmd.none )
+            let
+                newModel =
+                    { model | apps = Apps.State.decodeAppsList result }
+            in
+                ( newModel, Apps.State.onAppLoad newModel )
 
         AppsLoad (Err error) ->
             -- ignore errors for now

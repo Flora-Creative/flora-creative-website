@@ -4,8 +4,18 @@ import Http
 import Dict
 import List
 import Types
+import Carousel
 import Apps.Types exposing (GalleryItem, AppModel)
 import Generated.AppAPI
+
+
+onAppLoad : Types.Model -> Cmd msg
+onAppLoad _ =
+    Carousel.initCarousel "appcarousel"
+
+
+
+-- TODO: don't hardcode
 
 
 getAll : String -> Cmd Types.Msg

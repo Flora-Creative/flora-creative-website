@@ -1,7 +1,7 @@
 module Apps.View exposing (view)
 
 import Html exposing (..)
-import Html.Attributes
+import Html.Attributes exposing (..)
 import Css
 import Apps.Types exposing (..)
 import Apps.Style exposing (appNamespace)
@@ -49,15 +49,21 @@ appTitle app =
 embedGalleryItem : GalleryItem -> Html msg
 embedGalleryItem item =
     let
-        itemText =
+        itemHtml =
             case item of
                 Image url ->
-                    text (url ++ "  (image)")
+                    img [ src url ] []
 
                 Video url ->
-                    text (url ++ "  (video)")
+                    iframe
+                        [ src url
+                        , width 640
+                        , height 360
+                        , attribute "frameborder" "0"
+                        ]
+                        []
     in
-        li [] [ itemText ]
+        div [] [ itemHtml ]
 
 
 
@@ -66,7 +72,9 @@ embedGalleryItem item =
 
 appGallery : AppModel -> Html msg
 appGallery app =
-    ul [] <| List.map embedGalleryItem <| app.galleryItems
+    div [ class [ "carousel" ] ] <|
+        List.map embedGalleryItem <|
+            app.galleryItems
 
 
 descriptionStyle : AppModel -> Html.Attribute msg

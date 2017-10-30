@@ -94,6 +94,13 @@ if ( TARGET_ENV === 'development' ) {
         {
           test: /\.(woff|woff2)(\?v=[a-z0-9]\.[a-z0-9]\.[a-z0-9])?$/,
           loader: 'url-loader?limit=100000'
+        },
+        {
+          test: /\.css$/,
+          use: [
+            'style-loader',
+            'css-loader'
+          ]
         }
       ]
     }
@@ -140,6 +147,15 @@ if ( TARGET_ENV === 'production' ) {
         {
           test: /\.(woff|woff2)(\?v=[a-z0-9]\.[a-z0-9]\.[a-z0-9])?$/,
           loader: 'url-loader?limit=100000'
+        },
+        {
+          test: /\.css$/,
+          use: ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: [
+              'css-loader'
+            ]
+          })
         }
       ]
     },
