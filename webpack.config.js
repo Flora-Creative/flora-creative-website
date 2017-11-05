@@ -42,7 +42,13 @@ var commonConfig = {
       template: 'src/static/index.html',
       inject:   'body',
       filename: 'index.html'
-    })
+    }),
+    new CopyWebpackPlugin([
+      {
+        from: 'src/static/img/',
+        to:   'images/'
+      }
+    ])
   ]
 
 }
@@ -164,7 +170,7 @@ if ( TARGET_ENV === 'production' ) {
       new CopyWebpackPlugin([
         {
           from: 'src/static/img/',
-          to:   'static/img/'
+          to:   'images/'
         }
       ]),
 
