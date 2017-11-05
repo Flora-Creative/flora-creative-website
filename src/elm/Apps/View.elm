@@ -91,7 +91,7 @@ appDescription app =
 
 appStoreImg : Html msg
 appStoreImg =
-    img [ Html.Attributes.src "/assets/images/app_store_badge.svg" ] []
+    img [ Html.Attributes.src "/images/app_store_badge.svg" ] []
 
 
 appStoreButton : AppModel -> Html msg
