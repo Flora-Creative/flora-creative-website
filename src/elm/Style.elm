@@ -19,6 +19,7 @@ import SharedStyles exposing (..)
 -- ACTUAL CSS DEFINITIONS
 
 
+bannerStyle : List Style
 bannerStyle =
     [ backgroundColor (hex "#edeae3")
     , padding4 (Css.em 5) (Css.em 2) (Css.em 4.25) (Css.em 2)
@@ -30,6 +31,7 @@ bannerStyle =
 -- style basics that everyone should inherit
 
 
+defaultStyle : List Style
 defaultStyle =
     [ color (hex "#444140")
     , fontFamilies [ "Avenir", "Helvetica Neue", "Sans-Serif" ]
@@ -37,6 +39,7 @@ defaultStyle =
     ]
 
 
+floraHeaderStyle : List Style
 floraHeaderStyle =
     [ fontSize (Css.em 4.5)
     , marginBottom (Css.em 0.2)
@@ -50,6 +53,7 @@ floraHeaderStyle =
     ]
 
 
+projectHeaderStyle : List Style
 projectHeaderStyle =
     [ fontSize (Css.em 2.25)
     , paddingBottom (Css.em 0.1)
@@ -58,10 +62,12 @@ projectHeaderStyle =
     ]
 
 
+innerStyle : List Style
 innerStyle =
     [ margin auto ]
 
 
+descriptionStyle : List Style
 descriptionStyle =
     [ fontSize (Css.em 0.8)
     , fontWeight (int 200)
@@ -70,22 +76,27 @@ descriptionStyle =
     ]
 
 
+majorHeadingStyle : List Style
+majorHeadingStyle =
+    [ paddingBottom (Css.em 1)
+    , fontSize (Css.em 1.5)
+    , fontWeight (Css.int 700)
+    , letterSpacing (Css.em 0.1)
+    ]
+
+
 
 -- stick it all together to generate static css
 
 
+css : Stylesheet
 css =
     (stylesheet << namespace indexNamespace.name)
         [ body defaultStyle
         , class Inner innerStyle
         , class Description descriptionStyle
+        , class MajorHeading majorHeadingStyle
         , id FloraHeader floraHeaderStyle
         , id ProjectHeader projectHeaderStyle
         , id Banner bannerStyle
         ]
-
-
-
--- css =
--- (stylesheet << namespace indexNamespace)
--- [id Inner [margin auto]]

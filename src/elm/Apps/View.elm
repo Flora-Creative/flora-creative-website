@@ -62,7 +62,7 @@ appTitleStyle app =
 
 appTitle : AppModel -> Html msg
 appTitle app =
-    h2 [ appTitleStyle app ] [ text app.app.appName ]
+    h2 [ appTitleStyle app, class [ MajorHeading ] ] [ text app.app.appName ]
 
 
 embedGalleryItem : GalleryItem -> Html msg

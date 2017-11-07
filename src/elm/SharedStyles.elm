@@ -18,6 +18,7 @@ type CssClasses
     | PinnedHeader
     | HeaderIconContainer
     | AppIcon
+    | MajorHeading
 
 
 type CssIds

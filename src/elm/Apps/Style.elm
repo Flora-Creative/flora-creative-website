@@ -19,6 +19,7 @@ css =
         [ Css.class Content
             [ Css.width (Css.pct 60)
             , Css.marginBottom (Css.cm 2)
+            , Css.display Css.inlineBlock
             ]
         , Css.class Wrapper
             [ Css.width (Css.pct 100)

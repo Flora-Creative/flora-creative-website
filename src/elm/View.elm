@@ -16,7 +16,7 @@ import Apps.View
 
 view : Model -> Html msg
 view model =
-    body
+    div
         []
         (Apps.View.appHeader model.apps
             :: banner
