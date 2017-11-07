@@ -85,13 +85,20 @@ embedGalleryItem item =
         div [] [ itemHtml ]
 
 
-
--- THIS guy is going to be a pain
+carouselStyle : Html.Attribute msg
+carouselStyle =
+    [ Css.width (Css.pct 75)
+    , Css.display Css.block
+    , Css.textAlign Css.center
+    , Css.height (Css.px 600)
+    ]
+        |> Css.asPairs
+        >> Html.Attributes.style
 
 
 appGallery : AppModel -> Html msg
 appGallery app =
-    div [ class [ "carousel" ] ] <|
+    div [ class [ "carousel" ], carouselStyle ] <|
         List.map embedGalleryItem <|
             app.galleryItems
 

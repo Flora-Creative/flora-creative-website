@@ -17,9 +17,10 @@ css : Css.Stylesheet
 css =
     (Css.stylesheet << namespace appNamespace.name)
         [ Css.class Content
-            [ Css.width (Css.pct 60)
-            , Css.marginBottom (Css.cm 2)
+            [ Css.width (Css.pct 100)
+            , Css.margin4 (Css.cm 0) (Css.cm 0) (Css.cm 2) (Css.cm 0)
             , Css.display Css.inlineBlock
+            , Css.boxSizing Css.borderBox
             ]
         , Css.class Wrapper
             [ Css.width (Css.pct 100)
@@ -48,4 +49,13 @@ css =
             ]
         , Css.class HeaderIconContainer
             [ Css.textAlign Css.center ]
+        , Css.class Inner
+            [ Css.textAlign Css.right
+            , Css.flexDirection Css.rowReverse
+            , Css.alignItems Css.flexStart
+            , Css.displayFlex
+            , Css.padding4 (Css.em 2.0) (Css.em 2.0) (Css.em 0.1) (Css.em 2.0)
+            , Css.width (Css.pct 100)
+            , Css.margin2 (Css.em 0) Css.auto
+            ]
         ]
