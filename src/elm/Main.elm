@@ -3,7 +3,6 @@
 
 module Main exposing (..)
 
-import Html
 import RouteUrl exposing (RouteUrlProgram)
 import Types exposing (Model, Msg)
 import View

@@ -32,11 +32,11 @@ appNavIcon app =
 appHeader : AppCollection -> Html msg
 appHeader model =
     div [ class [ PinnedHeader ] ]
-        [ div [ class [ HeaderIconContainer ] ] <|
-            List.map appNavIcon
-                << Dict.values
-            <|
-                model
+        [ div [ class [ HeaderIconContainer ] ]
+            << List.map appNavIcon
+            << Dict.values
+          <|
+            model
         ]
 
 
