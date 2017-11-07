@@ -1,4 +1,4 @@
-module Apps.View exposing (view)
+module Apps.View exposing (view, appHeader)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
@@ -6,6 +6,8 @@ import Css
 import Apps.Types exposing (..)
 import Apps.Style exposing (appNamespace)
 import SharedStyles exposing (..)
+import List
+import Dict
 
 
 { id, class, classList } =
@@ -19,6 +21,23 @@ appColorStyles app =
     ]
         |> Css.asPairs
         |> Html.Attributes.style
+
+
+appNavIcon : AppModel -> Html msg
+appNavIcon app =
+    a [ href <| "#" ++ app.app.shortName ]
+        [ img [ src app.app.appIcon, class [ AppIcon ] ] [] ]
+
+
+appHeader : AppCollection -> Html msg
+appHeader model =
+    div [ class [ PinnedHeader ] ]
+        [ div [ class [ HeaderIconContainer ] ] <|
+            List.map appNavIcon
+                << Dict.values
+            <|
+                model
+        ]
 
 
 appSectionAttributes : AppModel -> List (Html.Attribute msg)

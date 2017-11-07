@@ -15,6 +15,9 @@ type CssClasses
     | Content
     | Wrapper
     | Spacer
+    | PinnedHeader
+    | HeaderIconContainer
+    | AppIcon
 
 
 type CssIds

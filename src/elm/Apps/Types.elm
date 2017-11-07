@@ -1,5 +1,6 @@
 module Apps.Types exposing (..)
 
+import Dict
 import Generated.API exposing (IOSApp)
 
 
@@ -19,3 +20,7 @@ type alias AppModel =
     , scrollState : ScrollState
     , app : IOSApp
     }
+
+
+type alias AppCollection =
+    Dict.Dict String AppModel

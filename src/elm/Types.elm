@@ -2,7 +2,7 @@ module Types exposing (..)
 
 import Dict
 import Http
-import Apps.Types exposing (AppModel)
+import Apps.Types exposing (AppCollection)
 import Generated.API exposing (IOSApp)
 
 
@@ -11,7 +11,7 @@ import Generated.API exposing (IOSApp)
 
 
 type alias Model =
-    { apps : Dict.Dict String AppModel
+    { apps : AppCollection
     , focus : Maybe String
     }
 

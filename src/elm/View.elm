@@ -18,7 +18,10 @@ view : Model -> Html msg
 view model =
     body
         []
-        (banner :: (model.apps |> Dict.values |> List.map Apps.View.view))
+        (Apps.View.appHeader model.apps
+            :: banner
+            :: (model.apps |> Dict.values |> List.map Apps.View.view)
+        )
 
 
 { id, class, classList } =
