@@ -3,7 +3,7 @@ module Types exposing (..)
 import Dict
 import Http
 import Apps.Types exposing (AppModel)
-import Generated.AppAPI exposing (Floraapps)
+import Generated.API exposing (IOSApp)
 
 
 -- The types that everyone needs to see
@@ -21,5 +21,5 @@ type alias Model =
 
 
 type Msg
-    = AppsLoad (Result Http.Error (List Floraapps))
+    = AppsLoad (Result Http.Error (List IOSApp))
     | AppClick String

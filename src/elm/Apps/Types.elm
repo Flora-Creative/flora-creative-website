@@ -1,6 +1,6 @@
 module Apps.Types exposing (..)
 
-import Generated.AppAPI exposing (Floraapps)
+import Generated.API exposing (IOSApp)
 
 
 type GalleryItem
@@ -17,5 +17,5 @@ type alias AppModel =
     { galleryItems : List GalleryItem
     , activeItem : Int -- int for cycling
     , scrollState : ScrollState
-    , app : Floraapps
+    , app : IOSApp
     }

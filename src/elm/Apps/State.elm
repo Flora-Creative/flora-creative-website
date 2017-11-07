@@ -6,7 +6,7 @@ import List
 import Types
 import Carousel
 import Apps.Types exposing (GalleryItem, AppModel)
-import Generated.AppAPI
+import Generated.API exposing (IOSApp)
 
 
 onAppLoad : Types.Model -> Cmd msg
@@ -20,10 +20,10 @@ onAppLoad _ =
 
 getAll : String -> Cmd Types.Msg
 getAll baseUrl =
-    Http.send Types.AppsLoad (Generated.AppAPI.get baseUrl)
+    Http.send Types.AppsLoad (Generated.API.get baseUrl)
 
 
-createGalleryList : Generated.AppAPI.Floraapps -> List GalleryItem
+createGalleryList : IOSApp -> List GalleryItem
 createGalleryList app =
     let
         imgs =
@@ -35,7 +35,7 @@ createGalleryList app =
         List.concat [ imgs, vids ]
 
 
-decodeApp : Generated.AppAPI.Floraapps -> AppModel
+decodeApp : IOSApp -> AppModel
 decodeApp floraApp =
     { galleryItems = createGalleryList floraApp
     , activeItem = 0
@@ -49,7 +49,7 @@ makeDictKeyPair app =
     ( app.app.shortName, app )
 
 
-decodeAppsList : List Generated.AppAPI.Floraapps -> Dict.Dict String AppModel
+decodeAppsList : List IOSApp -> Dict.Dict String AppModel
 decodeAppsList appsList =
     appsList
         |> List.map (decodeApp >> makeDictKeyPair)
