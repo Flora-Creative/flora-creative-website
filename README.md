@@ -2,25 +2,17 @@
 
 This is the business for building the flora website.
 
-It is Elm.
+It is Elm. Also webpack because it's fun.
 
 ## get started
 - clone it
-- `> npm install`  (takes a little while)
-- `> elm-package install`  (irritatingly breaks without doing this by hand first)
+- `> npm run reinstall`  (takes a little while)
 
-## build
-- everything:
-  - `> gulp build`
-- just the JS
-  - `> gulp elm`
-- just the CSS
-  - `> gulp css`
+## build it
+- `> npm run build`
 
-Files generated from the build end up in `site/gen/{js, css}`.
+Files generated from the build end up in `dist/`.
 
-The directory `site/` contains what's actually required to deploy the site,
-at the moment this is just the generated code and an `index.html` which
-embeds it.
-
-To have a look, use `gulp serve` or the standard `elm-reactor` should work.
+## develop
+To get a neat live server
+- `> npm start`

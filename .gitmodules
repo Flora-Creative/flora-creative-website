@@ -1,4 +1,4 @@
 [submodule "flora-api"]
 	path = flora-api
 	url = https://github.com/flora-creative/flora-api
-	branch = env-vars
+	branch = master

@@ -1,3 +1,5 @@
 elm-stuff/
 node_modules
-site/gen/
+dist/
+src/elm/Generated
+.DS_Store
